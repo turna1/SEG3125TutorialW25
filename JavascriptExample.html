@@ -1,0 +1,123 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+/* General body styling */
+body {
+  background-color: lightblue; /* Sets the background color of the page */
+  margin: 0; /* Removes default body margin */
+  font-family: Arial, sans-serif; /* Sets a default font for the entire page */
+}
+
+/* Header styling */
+h1 {
+  color: black; /* Sets the text color of the header */
+  text-align: center; /* Centers the header text */
+  margin-top: 20px; /* Adds spacing above the header */
+}
+
+/* Paragraph styling */
+p {
+  color: white; /* Sets text color for paragraphs */
+  font-family: Verdana, sans-serif; /* Uses Verdana for paragraph text */
+  font-size: 20px; /* Sets font size */
+  text-align: center; /* Centers paragraph text */
+}
+
+/* Navigation menu styling */
+nav ul {
+  display: flex; /* Makes the list items sit next to each other horizontally */
+  justify-content: center; /* Centers the menu items horizontally */
+  list-style-type: none; /* Removes bullet points from the list */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  background-color: #333; /* Sets a dark background for the navigation bar */
+}
+
+nav ul li {
+  flex: 1; /* Makes all tabs equal in size */
+}
+
+nav ul li a {
+  display: block; /* Turns the link into a block element */
+  color: white; /* Sets link text color */
+  text-decoration: none; /* Removes underline from links */
+  padding: 14px 20px; /* Adds padding inside the link area */
+  text-align: center; /* Centers the link text */
+  font-size: 18px; /* Sets font size for menu items */
+}
+
+nav ul li a:hover {
+  background-color: #575757; /* Changes background color when hovered */
+}
+
+/* Section styling */
+section {
+  padding: 20px; /* Adds space around the section content */
+  background-color: lightcoral; /* Sets a background color for the section */
+  text-align: center; /* Centers text inside the section */
+}
+
+/* Tabbed content styling */
+#home, #about, #contact {
+  display: none; /* Hides all tabs by default */
+}
+
+/* Show the selected tab content */
+nav ul li a.active + section {
+  display: block; /* Displays the content of the active tab */
+}
+</style>
+</head>
+<body>
+<!-- Header section -->
+<header>
+  <h1>Welcome to SEG3125 Course</h1>
+</header>
+
+<!-- Navigation menu -->
+<nav>
+  <ul>
+    <li><a href="#home" onclick="showTab(event, 'home')">Home</a></li> 
+    <li><a href="#about" onclick="showTab(event, 'about')">About</a></li>
+    <li><a href="#contact" onclick="showTab(event, 'contact')">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Tab content -->
+<section id="home">
+  <p>This is the home section. Explore the course details here.</p>
+</section>
+<section id="about">
+  <p>This course is about user-centric design and taught by Prof. Abdulmotaleb El Saddik.</p>
+</section>
+<section id="contact">
+  <p>Contact us at: seg3125@university.com</p>
+</section>
+
+<!-- JavaScript for tab functionality -->
+<script>
+function showTab(event, tabId) {
+  // Hide all sections
+  document.querySelectorAll("section").forEach(section => {
+    section.style.display = "none";
+  });
+
+  // Remove active class from all links
+  document.querySelectorAll("nav ul li a").forEach(link => {
+    link.classList.remove("active");
+  });
+
+  // Show the selected tab's content
+  document.getElementById(tabId).style.display = "block";
+
+  // Add active class to the clicked link
+  event.currentTarget.classList.add("active");
+}
+
+// Default tab
+document.querySelector("nav ul li a").click();
+</script>
+
+</body>
+</html>
