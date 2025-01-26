@@ -1,2 +1,2 @@
 # SEG3125TutorialW25
-SEG3125Tutorial
+This repo stores the examples demonstrated during the Tutorial of SEG3125 
